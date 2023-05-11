@@ -56,6 +56,18 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments,Mo
         panell.repaint();
     }
 
+    public void mostrar() {
+        this.pack();
+        this.setVisible(true);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            System.out.println("Error: "+e.toString());;
+        }
+        this.revalidate();
+        this.repaint();
+    }
+
     @Override
     public void notificar(String s) throws InterruptedException {
         switch (s) {

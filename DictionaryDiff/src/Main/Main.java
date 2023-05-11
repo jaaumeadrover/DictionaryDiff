@@ -13,14 +13,14 @@ public class Main implements PerEsdeveniments{
     /*
            Construcció de l'esquema MVC
         */
-    private void inicio() throws IOException {
+    private void inicio() {
         mod = new Model(this); //incluye lectura de fichero-grafo
         con = null;
         vis = new Vista("Complexitat Algorítmica I", this);
         vis.mostrar();
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         //Mesurament.mesura();
         (new Main()).inicio();
     }
