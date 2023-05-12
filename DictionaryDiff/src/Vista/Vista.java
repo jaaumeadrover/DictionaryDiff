@@ -8,38 +8,83 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class Vista extends JFrame implements ActionListener, PerEsdeveniments,MouseListener {
+public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
     private final Main prog;
     private final Panell panell;
+    JLabel resultLabel;
+    JComboBox<String> comboBox1;
+    JComboBox<String> comboBox2;
+    JCheckBox checkBox;
 
     public Vista(String s, Main p){
         super(s);
-
         prog = p;
-        this.getContentPane().setLayout(new BorderLayout());
+        panell = new Panell(400, 300, prog.getModel());
 
-        JPanel buttons = new JPanel();
+        setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
 
-        JButton b2 = new JButton("Llegir fitxer");
-        b2.addActionListener(this);
-        buttons.add(b2);
+// Create first JComboBox and add to panel
+        comboBox1 = new JComboBox<>(new String[]{"CAT", "DEN", "ENG","FRA","DEU","ITA","NOR","POR","ESP","SWE"});
+        comboBox1.setPreferredSize(new Dimension(200, 50));
+        c.gridx = 0;
+        c.gridy = 0; // Adjust the gridy value to move it higher
+        c.insets = new Insets(30, 50, 10, 50);
+        c.anchor = GridBagConstraints.NORTH;
+        comboBox1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JComboBox<String> combo = (JComboBox<String>) e.getSource();
+                String selectedOption = (String) combo.getSelectedItem();
+                combo.getSelectedItem();
+                prog.getModel().loadLang(selectedOption);
+            }
+        });
+        add(comboBox1, c);
 
-        JButton b1 = new JButton("Borra");
-        b1.addActionListener(this);
-        buttons.add(b1);
+// Create second JComboBox and add to panel
+        comboBox2 = new JComboBox<>(new String[]{"Tots","CAT", "DEN", "ENG","FRA","DEU","ITA","NOR","POR","ESP","SWE"});
+        comboBox2.setPreferredSize(new Dimension(200, 50));
+        c.gridx = 1;
+        c.gridy = 0; // Adjust the gridy value to move it higher
+        c.insets = new Insets(30, 50, 10, 50);
+        c.anchor = GridBagConstraints.NORTH;
+        comboBox2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                JComboBox<String> combo = (JComboBox<String>) e.getSource();
+                String selectedOption = (String) combo.getSelectedItem();
+                prog.getModel().loadLang(selectedOption);
+            }
+        });
+        add(comboBox2, c);
 
-        JButton b4 = new JButton("Calcula");
-        b4.addActionListener(this);
-        buttons.add(b4);
+// Create "Calculate" button and add to panel
+        JButton calculateButton = new JButton("Calculate");
+        calculateButton.setPreferredSize(new Dimension(150, 60));
+        c.gridx = 0;
+        c.gridy = 1; // Adjust the gridy value to move it higher
+        c.gridwidth = 2;
+        c.anchor = GridBagConstraints.NORTH;
+        c.insets = new Insets(30, 50, 10, 50);
+        add(calculateButton, c);
 
-        this.add(BorderLayout.NORTH, buttons);
-        panell = new Panell(800, 800, prog.getModel());
-        this.add(BorderLayout.CENTER, panell);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(false);
-        this.addMouseListener(this);
-        this.pack();
-        this.setLocationRelativeTo(null);
+        // Create checkbox with two options
+        checkBox = new JCheckBox("Optimitzat");
+        checkBox.setPreferredSize(new Dimension(100, 30));
+        c.gridx = 2;
+        c.gridy = 1;
+        c.gridwidth = 1;
+        c.insets = new Insets(30, 10, 10, 50);
+        add(checkBox, c);
+
+
+
+        resultLabel = new JLabel("Aqui se mostra el resultat");
+        c.gridx = 0;
+        c.gridy = 2; // Position it below the button
+        c.gridwidth = 2;
+        c.anchor = GridBagConstraints.CENTER;
+        c.insets = new Insets(10, 50, 30, 50);
+        add(resultLabel, c);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -56,6 +101,10 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments,Mo
         panell.repaint();
     }
 
+    public void canviaEtiqueta(String lan1,String lan2,int dist){
+        resultLabel.setText("Distància de "+lan1+" a "+lan2+" és: "+dist);
+    }
+
     public void mostrar() {
         this.pack();
         this.setVisible(true);
@@ -67,6 +116,7 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments,Mo
         this.revalidate();
         this.repaint();
     }
+
 
     @Override
     public void notificar(String s) throws InterruptedException {
@@ -80,28 +130,5 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments,Mo
         }
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
 
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
 }

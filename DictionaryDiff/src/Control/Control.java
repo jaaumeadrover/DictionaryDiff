@@ -26,6 +26,7 @@ public class Control extends Thread implements PerEsdeveniments {
         if(msg.startsWith("Calcula")){
             //inicialitzar dades Model
 
+            //
             try {
                 prog.getVista().notificar("Repintar");
             } catch (InterruptedException e) {

@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e5a42cdf-3789-45cf-b33e-1b1dcd22dd05" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DictionaryDiff/src/Control/Control.java" beforeDir="false" afterPath="$PROJECT_DIR$/DictionaryDiff/src/Control/Control.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DictionaryDiff/src/Levenshtein/EditDistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/DictionaryDiff/src/Levenshtein/EditDistance.java" afterDir="false" />
+    </list>
+    <list id="bdff1ab2-5e05-45f8-8438-3c5e68bd88cb" name="Changes by berme" comment="">
+      <change beforePath="$PROJECT_DIR$/DictionaryDiff/src/Vista/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/DictionaryDiff/src/Vista/Vista.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +30,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Jaume/Desktop/Jaume Adrover/2. FORMACIÓ/1. UIB/Cursos/TERCER/2n quatri/AlgoritmesAvançats/PRÀCTIQUES/DictionaryDiff",
+    "last_opened_file_path": "C:/Users/Jaume/Desktop/Jaume Adrover/2. FORMACIÓ/1. UIB/Cursos/TERCER/2n quatri/AlgoritmesAvançats/PRÀCTIQUES/DictionaryDiff/DictionaryDiff",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -38,7 +43,7 @@
       <option name="presentableId" value="Default" />
       <updated>1683794206160</updated>
       <workItem from="1683794207254" duration="42000" />
-      <workItem from="1683879501703" duration="719000" />
+      <workItem from="1683879501703" duration="2830000" />
     </task>
     <servers />
   </component>

@@ -3,6 +3,9 @@ package Main;
 import Model.Model;
 import Control.Control;
 import Vista.Vista;
+import Utils.Utils;
+
+import java.io.IOException;
 
 
 public class Main implements PerEsdeveniments{
@@ -11,16 +14,18 @@ public class Main implements PerEsdeveniments{
     private Control con;  // punter al Control
 
     /*
-           Construcció de l'esquema MVC
-        */
-    private void inicio() {
+       Construcció de l'esquema MVC
+    */
+    private void inicio() throws IOException {
         mod = new Model(this); //incluye lectura de fichero-grafo
         con = null;
         vis = new Vista("Complexitat Algorítmica I", this);
         vis.mostrar();
+        String language[]=Utils.readLinesToArray("FRA.txt");
+        System.out.println("Hola:"+language[5]);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //Mesurament.mesura();
         (new Main()).inicio();
     }
@@ -37,7 +42,6 @@ public class Main implements PerEsdeveniments{
                 //mod.setLlegit(false);
                 break;
             case "Borra":
-
                 vis.notificar("Repintar");
                 break;
             case "Calcula":
