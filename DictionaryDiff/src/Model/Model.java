@@ -5,9 +5,14 @@ import Main.Main;
 public class Model {
     private final Main prog;
 
-    private String[] lan1;
+    private final String[] dicts = {"CAT", "DEN", "ENG","FRA","DEU","ITA","NOR","POR","ESP","SWE"};
 
-    private String[] lan2;
+    private Idioma idioma1;
+
+    private Idioma idioma2;
+
+
+    public boolean tots;
 
     private int dist;
     private boolean optimitzat;
@@ -18,25 +23,7 @@ public class Model {
         this.prog = prog;
         optimitzat=false;
     }
-    //Mètode per obtenir els
-    public String[] getDict(int i){
-        if(i==1){
-            return lan1;
-        }else{
-            return lan2;
-        }
-    }
-    public void calcula(){
-        //load lan1
-        //load lan2
 
-        //Si no està optimitzat
-        if(!optimitzat){
-            //crida levenstein sense optimitzar
-        }else{
-            //crida levenstein amb distàncies
-        }
-    }
 
     public void loadLang(String str){
         String f=str;
@@ -50,4 +37,34 @@ public class Model {
 
         }
     }
+    public void setTots(boolean t){
+        this.tots=t;
+    }
+
+    public void setIdioma1(Idioma id){
+        this.idioma1 = id;
+    }
+
+    public void setIdioma2(Idioma id){
+        this.idioma2 = id;
+    }
+
+    public Idioma getIdioma1() {
+        return idioma1;
+    }
+    public Idioma getIdioma2() {
+        return idioma2;
+    }
+
+    public void printea (){
+        System.out.println(idioma1.nom);
+    }
+    public String getDict (int i){
+        return dicts[i];
+    }
+
+    public int NDicts(){
+        return dicts.length;
+    }
 }
+

@@ -21,8 +21,8 @@ public class Main implements PerEsdeveniments{
         con = null;
         vis = new Vista("Complexitat Algorítmica I", this);
         vis.mostrar();
-        String language[]=Utils.readLinesToArray("FRA.txt");
-        System.out.println("Hola:"+language[5]);
+        //String language[]=Utils.readLinesToArray("FRA.txt");
+        //System.out.println("Hola:"+language[5]);
     }
 
     public static void main(String[] args) throws IOException {
@@ -45,6 +45,7 @@ public class Main implements PerEsdeveniments{
                 vis.notificar("Repintar");
                 break;
             case "Calcula":
+
                 this.con = new Control(this);
                 con.notificar("Calcula");
                 break;

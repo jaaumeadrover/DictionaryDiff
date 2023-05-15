@@ -1,7 +1,9 @@
 package Control;
 
+import Levenshtein.Levenstein;
 import Main.Main;
 import Main.PerEsdeveniments;
+import Model.Idioma;
 
 /**
  * AUTOR: ATA2
@@ -25,7 +27,16 @@ public class Control extends Thread implements PerEsdeveniments {
     public void run() {
         if(msg.startsWith("Calcula")){
             //inicialitzar dades Model
+            String idioma1 = prog.getVista().getSelected1();
+            if(prog.getVista().getSelected2().equals("Tots")){
 
+            }else{
+                String idioma2 = prog.getVista().getSelected2();
+                this.prog.getModel().setIdioma1(new Idioma(idioma1));
+                this.prog.getModel().setIdioma2(new Idioma(idioma2));
+                Levenstein alg = new Levenstein(this.prog);
+                System.out.println(alg.distEntre2Langs());
+            }
             //
             try {
                 prog.getVista().notificar("Repintar");

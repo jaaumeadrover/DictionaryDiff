@@ -1,6 +1,11 @@
 package Levenshtein;
 
 import Main.Main;
+import Model.Idioma;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Levenstein {
     public Main prog;
@@ -41,8 +46,8 @@ public class Levenstein {
     //ALGORITME NO OPTIMITZAT
     public double distEntre2Langs() {
         //Referenciam els llenguatges seleccionats
-        String[] llenguatge1=prog.getModel().getDict(1);
-        String[] llenguatge2=prog.getModel().getDict(2);
+        String[] llenguatge1=(prog.getModel().getIdioma1().getWords());
+        String[] llenguatge2=prog.getModel().getIdioma2().getWords();
 
         String str1="";
         String str2="";
@@ -82,6 +87,56 @@ public class Levenstein {
 
         //min
         return Math.sqrt((mean1*mean1)+(mean2*mean2));
+    }
+    public double[] distTots() {
+        //Referenciam els llenguatges seleccionats
+        String[] llenguatge1 = (prog.getModel().getIdioma1().getWords());
+        double[] distancias = new double[prog.getModel().NDicts()];
+
+        String str1 = "";
+        String[] llenguatge2;
+        String str2 = "";
+        for (int h = 0; h < prog.getModel().NDicts(); h++) {
+
+            llenguatge2 = new Idioma(prog.getModel().getDict(h)).getWords();
+
+            int minDist = Integer.MAX_VALUE;
+            Double mean1 = 0.0;
+
+            for (int i = 0; i < llenguatge1.length; i++) {
+                str1 = llenguatge1[i];
+                for (int j = 0; j < llenguatge2.length; j++) {
+                    str2 = llenguatge2[j];
+                    //Levenstein
+                    int dist = this.editDist(str1, str2, str1.length(), str2.length());
+                    if (dist < minDist) {
+                        minDist = dist;
+                    }
+                }
+                mean1 += minDist;
+            }
+            mean1 = mean1 / llenguatge1.length;
+
+            Double mean2 = 0.0;
+
+            for (int i = 0; i < llenguatge2.length; i++) {
+                str1 = llenguatge2[i];
+                for (int j = 0; j < llenguatge1.length; j++) {
+                    str2 = llenguatge1[j];
+                    //Levenstein
+                    int dist = this.editDist(str1, str2, str1.length(), str2.length());
+                    if (dist < minDist) {
+                        minDist = dist;
+                    }
+                }
+                mean2 += minDist;
+            }
+            mean2 = mean2 / llenguatge1.length;
+
+            //min
+            distancias[h]= Math.sqrt((mean1 * mean1) + (mean2 * mean2));
+        }
+        return distancias;
     }
 
 

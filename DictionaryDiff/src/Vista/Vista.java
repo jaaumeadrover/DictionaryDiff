@@ -57,8 +57,8 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
         });
         add(comboBox2, c);
 
-// Create "Calculate" button and add to panel
-        JButton calculateButton = new JButton("Calculate");
+        // Create "Calculate" button and add to panel
+        JButton calculateButton = new JButton("Calcula");
         calculateButton.setPreferredSize(new Dimension(150, 60));
         c.gridx = 0;
         c.gridy = 1; // Adjust the gridy value to move it higher
@@ -66,6 +66,7 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
         c.anchor = GridBagConstraints.NORTH;
         c.insets = new Insets(30, 50, 10, 50);
         add(calculateButton, c);
+        calculateButton.addActionListener(this);
 
         // Create checkbox with two options
         checkBox = new JCheckBox("Optimitzat");
@@ -127,7 +128,19 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
             case "fitxerLlegit":
 
                 break;
+
+            case "Calcula":
+                prog.notificar("Calcula");
+                System.out.println("Calcula");
+                break;
         }
+    }
+    public String getSelected1(){
+        return (String) comboBox1.getSelectedItem();
+    }
+
+    public String getSelected2(){
+        return (String) comboBox2.getSelectedItem();
     }
 
 
