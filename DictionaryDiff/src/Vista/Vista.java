@@ -2,6 +2,8 @@ package Vista;
 
 import Main.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,6 +62,22 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
         // Create "Calculate" button and add to panel
         JButton calculateButton = new JButton("Calcula");
         calculateButton.setPreferredSize(new Dimension(150, 60));
+        calculateButton.setUI(new BasicButtonUI()); // Establece la interfaz de usuario básica para el botón
+
+        calculateButton.setBackground(new Color(255, 255, 255));
+        calculateButton.setForeground(new Color(0, 0, 0));
+
+        // Crear un borde redondeado
+        Border roundedBorder = BorderFactory.createLineBorder(new Color(0, 0, 0));
+        Border emptyBorder = BorderFactory.createEmptyBorder(5, 15, 5, 15);
+        Border compoundBorder = BorderFactory.createCompoundBorder(roundedBorder, emptyBorder);
+        calculateButton.setBorder(compoundBorder);
+
+        // Personalizar la fuente del texto
+        calculateButton.setFont(new Font("Arial", Font.BOLD, 12));
+
+        // Quitar el efecto de enfoque
+        calculateButton.setFocusPainted(false);
         c.gridx = 0;
         c.gridy = 1; // Adjust the gridy value to move it higher
         c.gridwidth = 2;
@@ -141,6 +159,10 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
 
     public String getSelected2(){
         return (String) comboBox2.getSelectedItem();
+    }
+
+    public void setResultLabel(String txt){
+        resultLabel.setText(txt);
     }
 
 

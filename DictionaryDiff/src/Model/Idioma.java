@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,14 +17,16 @@ public class Idioma {
 
     String nom;
 
-    public Idioma( String nom){
-        this.filename="/home/diegofes/GitHub/DictionaryDiff/DictionaryDiff/src/Model/"+nom+".txt";
+    public Idioma( String nom) throws FileNotFoundException {
+        String currentDir = Paths.get("").toAbsolutePath().toString();
+        this.filename=currentDir +"/data/"+nom+".txt";
         this.nom = nom;
         words = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = br.readLine()) != null) {
+                System.out.println("LINE: "+line);
                 words.add(line);
             }
         } catch (FileNotFoundException e) {
@@ -31,6 +34,7 @@ public class Idioma {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println();
     }
 
     public void ordena(){

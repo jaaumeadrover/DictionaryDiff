@@ -4,6 +4,9 @@ import Levenshtein.Levenstein;
 import Main.Main;
 import Main.PerEsdeveniments;
 import Model.Idioma;
+import Model.Model;
+
+import java.io.FileNotFoundException;
 
 /**
  * AUTOR: ATA2
@@ -29,13 +32,28 @@ public class Control extends Thread implements PerEsdeveniments {
             //inicialitzar dades Model
             String idioma1 = prog.getVista().getSelected1();
             if(prog.getVista().getSelected2().equals("Tots")){
-
+                double[] distancias = new double[prog.getModel().NDicts()];
+                for (int i = 0; i < distancias.length; i++) {
+                    try {
+                        prog.getModel().setIdioma2(new Idioma(prog.getModel().getDict(i)));
+                        Levenstein alg = new Levenstein(this.prog);
+                        distancias[i]= alg.distEntre2Langs();
+                    } catch (FileNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
             }else{
                 String idioma2 = prog.getVista().getSelected2();
-                this.prog.getModel().setIdioma1(new Idioma(idioma1));
-                this.prog.getModel().setIdioma2(new Idioma(idioma2));
+                try {
+                    this.prog.getModel().setIdioma1(new Idioma(idioma1));
+                    this.prog.getModel().setIdioma2(new Idioma(idioma2));
+
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
                 Levenstein alg = new Levenstein(this.prog);
-                System.out.println(alg.distEntre2Langs());
+                //System.out.println(alg.distEntre2Langs());
+                prog.getVista().setResultLabel("La distància entre els dos idiomes: "+alg.distEntre2Langs());
             }
             //
             try {
