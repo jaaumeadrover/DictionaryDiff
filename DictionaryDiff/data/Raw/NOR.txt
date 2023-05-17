@@ -3,7 +3,7 @@ de
 hva
 de
 en
-Jeg
+jeg
 en
 de
 er
@@ -12,7 +12,7 @@ de
 en
 til
 med
-Nei
+nei
 en
 henne
 til
@@ -22,14 +22,14 @@ den
 hvordan
 måned
 eller
-Men
+men
 deres
 ham
 har
 meg
-Ja
+ja
 uten
-Om
+om
 dette
 nå
 mellom
@@ -41,7 +41,7 @@ de er
 to
 også
 var
-Det var
+det var
 var
 mye
 år
@@ -59,7 +59,7 @@ tid
 kan
 alle
 som dette
-Til oss
+til oss
 eller
 parti
 har
@@ -83,7 +83,7 @@ denne
 dette
 gjør
 en annen
-Myndighetene
+myndighetene
 så
 i løpet av
 alltid
@@ -91,7 +91,7 @@ dag
 så mye
 hun
 tre
-Ja
+ja
 han sa
 vært
 stor
@@ -103,7 +103,7 @@ verden
 før
 vært
 mot
-Hvis ikke
+hvis ikke
 form
 sak
 ingenting
@@ -126,13 +126,13 @@ ferdig
 først
 mye
 samtidig som
-I tillegg
-WHO
+i tillegg
+who
 øyeblikk
 millioner
 dette
-Spania
-Mann
+spania
+mann
 de er
 så
 i dag
