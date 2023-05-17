@@ -88,7 +88,7 @@ public class Levenstein {
             }
             mean2 += minDist;
         }
-        mean2 = mean2 / llenguatge1.length;
+        mean2 = mean2 / llenguatge2.length;
 
         //min
         return Math.sqrt((mean1*mean1)+(mean2*mean2));
@@ -135,8 +135,8 @@ public class Levenstein {
     }
     public double distOptim(){
         //Referenciam els llenguatges seleccionats
-        String[] llenguatge1=(prog.getModel().getIdioma1().getWords());
-        String[] llenguatge2=prog.getModel().getIdioma2().getWords();
+        String[] llenguatge1=(prog.getModel().getIdioma1().getSortedWords());
+        String[] llenguatge2=prog.getModel().getIdioma2().getSortedWords();
 
         String str1="";
         String str2="";
@@ -144,20 +144,24 @@ public class Levenstein {
         int minDist;
         Double mean1 = 0.0;
 
+        //LLENGUATGE 1 AMB LLENGUATGE 2
         for (int i = 0; i <llenguatge1.length; i++) {
             str1=llenguatge1[i];
             minDist= Integer.MAX_VALUE;
-            for (int j = 0; j < llenguatge2.length; j++) {
+            int index = trobarIndex(str1.length(),prog.getModel().getIdioma2().getIndexos());//index de longitud menor,igual
+            for (int j = index; j < llenguatge2.length; j++) {
                 str2=llenguatge2[j];
-                if(str1.length()!=str2.length()){
+                if((str2.length()-str1.length())==minDist || minDist==0){//casos en que no fa falta mirar
                     break;
                 }
+
                 //Levenstein
                 int dist=this.editDist(str1,str2,str1.length(),str2.length());
                 if(dist<minDist){
                     minDist=dist;
                     System.out.println();
                 }
+
             }
             System.out.println("MIN: "+minDist);
             mean1 += minDist;
@@ -166,27 +170,46 @@ public class Levenstein {
 
         Double mean2 = 0.0;
 
+        //LLENGUATGE 2 AMB LLENGUATGE1
         for (int i = 0; i <llenguatge2.length; i++) {
             str1=llenguatge2[i];
             minDist= Integer.MAX_VALUE;
-            for (int j = 0; j < llenguatge1.length; j++) {
+            int index=trobarIndex(str1.length(),prog.getModel().getIdioma1().getIndexos());
+            for (int j = index; j < llenguatge1.length; j++) {
                 str2=llenguatge1[j];
-                if(str1.length()!=str2.length()){
+                if((str2.length()-str1.length())==minDist || minDist==0){//casos en que no fa falta mirar
+                    System.out.println();
                     break;
                 }
                 //Levenstein
                 int dist=this.editDist(str1,str2,str1.length(),str2.length());
-                if(dist<minDist){
+                if(dist<minDist){//Si la distància és més petita, update
                     minDist=dist;
                 }
+
             }
             mean2 += minDist;
         }
-        mean2 = mean2 / llenguatge1.length;
+        mean2 = mean2 / llenguatge2.length;
 
         //min
         return Math.sqrt((mean1*mean1)+(mean2*mean2));
 
+    }
+
+    //Mètode per a trobar l'índex de paraules d'una determinada longitud.
+    private int trobarIndex(int longitud,int[] indexos){
+        int idx=0;
+
+
+        for (int i = 0; i < indexos.length; i++) {
+            if(indexos[i]!=-1){
+                idx=indexos[i];
+                break;
+            }
+        }
+
+        return idx;
     }
 
 

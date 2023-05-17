@@ -42,6 +42,7 @@ public class Control extends Thread implements PerEsdeveniments {
                         throw new RuntimeException(e);
                     }
                 }
+                prog.getVista().setResultLabel("La distància amb tots els idiomes es "+distancias);
             }else{
                 String idioma2 = prog.getVista().getSelected2();
                 try {
@@ -53,7 +54,12 @@ public class Control extends Thread implements PerEsdeveniments {
                 }
                 Levenstein alg = new Levenstein(this.prog);
                 //System.out.println(alg.distEntre2Langs());
-                prog.getVista().setResultLabel("La distància entre els dos idiomes: "+alg.distEntre2Langs());
+                if(prog.getModel().isOptimitzat()){
+                    prog.getVista().setResultLabel("La distància entre els dos idiomes (OPTIMITZAT): "+alg.distOptim());
+                }else{
+                    prog.getVista().setResultLabel("La distància entre els dos idiomes: "+alg.distEntre2Langs());
+                }
+
             }
             //
             try {

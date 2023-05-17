@@ -93,6 +93,16 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
         c.gridy = 1;
         c.gridwidth = 1;
         c.insets = new Insets(30, 10, 10, 50);
+        checkBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(checkBox.isSelected()){
+                    prog.getModel().setOptimitzat(true);
+                }else{
+                    prog.getModel().setOptimitzat(false);
+                }
+            }
+        });
         add(checkBox, c);
 
 

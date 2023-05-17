@@ -49,6 +49,10 @@ public class Model {
         this.idioma2 = id;
     }
 
+    public void setOptimitzat(boolean bol){
+        this.optimitzat=bol;
+    }
+
     public Idioma getIdioma1() {
         return idioma1;
     }
@@ -61,6 +65,10 @@ public class Model {
     }
     public String getDict (int i){
         return dicts[i];
+    }
+
+    public boolean isOptimitzat(){
+        return this.optimitzat;
     }
 
     public int NDicts(){

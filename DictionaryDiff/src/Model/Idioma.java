@@ -32,6 +32,7 @@ public class Idioma {
         //Obtenim meta-informació
         filename=currentDir+"/data/Metadata/"+nom+"_metadata.txt";
         initMetadata(filename);
+        System.out.println();
     }
 
     private void initWords(String filename){
@@ -89,4 +90,6 @@ public class Idioma {
     public String[] getSortedWords(){
         return sortedWords.toArray(new String[0]);
     }
+
+    public int[] getIndexos(){return this.indexos;}
 }
