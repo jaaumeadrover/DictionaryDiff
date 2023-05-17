@@ -28,4 +28,5 @@ public class Panell extends JPanel {
 
 
     }
+
 }

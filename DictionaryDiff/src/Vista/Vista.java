@@ -7,6 +7,9 @@ import javax.swing.plaf.basic.BasicButtonUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+
+// ...
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -22,7 +25,7 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
         super(s);
         prog = p;
         panell = new Panell(400, 300, prog.getModel());
-
+        this.getContentPane().setBackground(Color.white); // Cambia el color de fondo del panel
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
@@ -64,8 +67,8 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
         calculateButton.setPreferredSize(new Dimension(150, 60));
         calculateButton.setUI(new BasicButtonUI()); // Establece la interfaz de usuario básica para el botón
 
-        calculateButton.setBackground(new Color(255, 255, 255));
-        calculateButton.setForeground(new Color(0, 0, 0));
+        calculateButton.setBackground(new Color(63, 136, 143));
+        calculateButton.setForeground(new Color(255, 255, 255));
 
         // Crear un borde redondeado
         Border roundedBorder = BorderFactory.createLineBorder(new Color(0, 0, 0));
