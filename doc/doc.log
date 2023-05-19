@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.3)  17 MAY 2023 10:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.3)  19 MAY 2023 15:33
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -550,652 +550,254 @@ Underfull \hbox (badness 10000) in paragraph at lines 68--69
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
+Underfull \hbox (badness 3679) in paragraph at lines 75--76
+[]\OT1/ptm/m/n/10 Escollim du-es op-ci-ons i poste-ri-or-ment, cli-cam al
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 78--79
-[]\OT1/ptm/m/n/10 Una ve-ga-da el pro-gra-ma prin-ci-pal sap quin dels
+Underfull \hbox (badness 2103) in paragraph at lines 77--78
+\OT1/ptm/m/n/10 desit-ja-da, cli-cam el bot[]o de cal-cu-la. El pro-gra-ma
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
-
- []
-
-<images/MVC.png, id=92, 833.1125pt x 450.68375pt>
+<images/MVC.png, id=88, 833.1125pt x 450.68375pt>
 File: images/MVC.png Graphic file (type png)
 <use images/MVC.png>
-Package pdftex.def Info: images/MVC.png  used on input line 95.
+Package pdftex.def Info: images/MVC.png  used on input line 87.
 (pdftex.def)             Requested size: 200.20825pt x 108.30383pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+[1{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 108--110
+ <./images/MVC.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 103--105
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--127
+Underfull \hbox (badness 1389) in paragraph at lines 118--119
+[]\OT1/ptm/m/n/10 Totes aques-tes ma-ni-pu-la-ci-ons s'-han acon-se-guit amb
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
+
+ []
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 122.
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
 
-Underfull \hbox (badness 1648) in paragraph at lines 124--127
-\OT1/ptm/m/n/10 Cal men-ci-o-nar un fac-tor molt im-por-tant i es que
+Underfull \hbox (badness 4752) in paragraph at lines 168--169
+[]\OT1/ptm/m/n/10 D'aquesta ma-ne-ra, sa-bem que $\OML/cmm/m/it/10 x[]$ \OT1/ptm/m/n/10 per-tany al
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--127
-
- []
-
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on input line 130.
-
-Underfull \hbox (badness 1466) in paragraph at lines 157--162
-[]\OT1/ptm/m/n/10 Com po-dem apre-ci-ar, pri-mer s'i-ni-ci-a-lit-za la ma-triu
+Underfull \hbox (badness 2426) in paragraph at lines 168--169
+\OT1/ptm/m/n/10 cor-res-po-nent on co-men-cen les pa-rau-les de $\OML/cmm/m/it/10 x[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--162
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--162
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--166
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--166
+Underfull \hbox (badness 10000) in paragraph at lines 195--196
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--169
-
- []
-
-[2 <./images/MVC.png>]
-Underfull \hbox (badness 2103) in paragraph at lines 175--176
-[]\OT1/ptm/m/n/10 Despr[]es d'-ha-ver eva-lu-at tots els pro-ble-mes sor-gits i
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 196--197
-
- []
-
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 209.
-(/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+[2]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 229.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 5847) in paragraph at lines 226--227
-[]\OT1/ptm/b/n/10 minDist(double dist[], Bo-o-le-an spt-Set[])\OT1/ptm/m/n/10 : aquest
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 226--227
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
+Underfull \hbox (badness 10000) in paragraph at lines 243--244
 
  []
 
 
-Underfull \hbox (badness 1552) in paragraph at lines 228--229
-[]\OT1/ptm/b/n/10 trobarCami(int src,int des-ti,int c)\OT1/ptm/m/n/10 :un cop tro-ba-da
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
+[]\OT1/pcr/m/n/10 idioma1 i idioma2\OT1/ptm/m/n/10 : Aques-tes son les du-es
  []
 
 
-Underfull \hbox (badness 1810) in paragraph at lines 228--229
-\OT1/ptm/m/n/10 nom-bres \OT1/ptm/m/it/10 dou-ble\OT1/ptm/m/n/10 , mi-ram d'i-te-rar des del dest[]^^P fins
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
+Underfull \hbox (badness 10000) in paragraph at lines 244--245
 
  []
 
 
-Underfull \hbox (badness 1701) in paragraph at lines 233--261
-[]\OT1/ptm/m/n/10 Anem a veu-re com hem im-ple-men-tat l'al-go-rit-me de
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
-
+Underfull \hbox (badness 3407) in paragraph at lines 247--248
+\OT1/ptm/m/n/10 aquest cas, si l'u-su-a-ri desit-ja exe-cu-tar l'al-gors-me
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--261
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 262--263
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 
  []
 
 [3]
-Underfull \hbox (badness 3492) in paragraph at lines 286--287
-[]\OT1/pcr/m/n/10 seleccionats\OT1/ptm/m/n/10 : En aquest ar-ray-list con-te-nim el
- []
-
-
-Underfull \hbox (badness 2418) in paragraph at lines 286--287
-\OT1/ptm/m/n/10 nom dels tres po-bles que l'u-su-a-ri ha se-lec-ci-o-nat,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 287--288
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 288--289
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 289--290
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 290--291
-
- []
-
-
-Underfull \hbox (badness 1742) in paragraph at lines 291--292
-[]\OT1/pcr/m/n/10 matriu\OT1/ptm/m/n/10 : re-pre-sen-ta la ma-triu d'ad-jac[]encia aques-ta
- []
-
-
-Underfull \hbox (badness 4467) in paragraph at lines 291--292
-[]\OT1/ptm/m/n/10 es una re-pre-sen-ta-ci[]o es-truc-tu-ra-da que mos-tra les
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 291--292
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 292--293
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 293--294
-[]\OT1/pcr/m/n/10 cami1, cami2 y camiFinal\OT1/ptm/m/n/10 : el pri-mer dels
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 293--294
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-Underfull \hbox (badness 10000) in paragraph at lines 302--303
-[]\OT1/pcr/m/n/10 ArrayList <Carretera> salientes\OT1/ptm/m/n/10 : aques-ta
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 325--326
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
-[]\OT1/pcr/m/n/10 ArrayList<Poble> pobles\OT1/ptm/m/n/10 : Aquests son els
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 326--327
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
-
- []
-
-
-Underfull \hbox (badness 2368) in paragraph at lines 340--341
+Underfull \hbox (badness 2368) in paragraph at lines 278--279
 []\OT1/pcr/m/n/10 prog\OT1/ptm/m/n/10 : atri-but que []es una ins-tan-cia del pro-gra-ma
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--341
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
+\OT1/ptm/m/n/10 prin-ci-pal. Amb ell, po-drem ob-te-nir l'a-tri-but
+ []
+
+
+Underfull \hbox (badness 7522) in paragraph at lines 278--279
+\OT1/pcr/m/n/10 resultLabel \OT1/ptm/m/n/10 Aques-ta re-pre-sen-ta la sec-ci[]o de
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 278--279
+\OT1/ptm/m/n/10 la fi-nes-tra on mos-tra-rem els re-sul-tats ob-tin-guts de
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 279--280
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 342--343
+Underfull \hbox (badness 2065) in paragraph at lines 280--281
+\OT1/ptm/m/n/10 que con-te-nen els com-po-nents de se-lec-ci[]o m[]ultiple
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
 
  []
 
 
-Overfull \hbox (31.22688pt too wide) in paragraph at lines 352--352
+Overfull \hbox (31.22688pt too wide) in paragraph at lines 291--291
 []    \OT1/pcr/m/n/10 public void actionPerformed(ActionEvent e);[] 
  []
 
 
-Overfull \hbox (7.22688pt too wide) in paragraph at lines 352--352
+Overfull \hbox (7.22688pt too wide) in paragraph at lines 291--291
 []    \OT1/pcr/m/n/10 public void mouseClicked(MouseEvent e);[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
+Underfull \hbox (badness 10000) in paragraph at lines 293--294
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
+Underfull \hbox (badness 1527) in paragraph at lines 294--295
+\OT1/ptm/m/n/10 els bo-tons, com-bo-bo-xes i els ini-ci-a-lit-zam amb els
+ []
+
+
+Underfull \hbox (badness 3271) in paragraph at lines 294--295
+\OT1/ptm/m/n/10 va-lors dis-po-ni-bles al pro-gra-ma. Tamb[]e do-tam als
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--295
 
  []
 
 
-Underfull \hbox (badness 5563) in paragraph at lines 356--357
+Underfull \hbox (badness 5563) in paragraph at lines 295--296
 []\OT1/pcr/m/n/10 actionPerformed(ActionEvent e) \OT1/ptm/m/n/10 : m[]etode
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 356--357
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 357--358
+Underfull \hbox (badness 10000) in paragraph at lines 296--297
 
  []
 
-[5]
-Overfull \hbox (13.22688pt too wide) in paragraph at lines 366--366
-[]    \OT1/pcr/m/n/10 private ArrayList<JButton> botonsPobles;[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 369--370
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 370--371
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
-[]\OT1/pcr/m/n/10 Panell(int w, int h, Model m)\OT1/ptm/m/n/10 : m[]etode
- []
-
-
-Underfull \hbox (badness 6758) in paragraph at lines 380--381
-\OT1/ptm/m/n/10 cons-truc-tor de la clas-se. Per par[]ametre s'in-di-ca
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 381--385
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 381--385
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 381--385
-
- []
-
-
-Underfull \hbox (badness 1406) in paragraph at lines 381--385
-\OT1/ptm/m/n/10 amb el nom-bre abans cal-cu-lat. Per []ultim mos-tram
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 381--385
-
- []
-
-<images/GUI.png, id=132, 915.42pt x 982.67125pt>
-File: images/GUI.png Graphic file (type png)
-<use images/GUI.png>
-Package pdftex.def Info: images/GUI.png  used on input line 391.
-(pdftex.def)             Requested size: 200.20825pt x 214.91382pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 406--407
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
-
- []
-
-[6 <./images/GUI.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 420--421
-
- []
-
-
-Underfull \hbox (badness 3088) in paragraph at lines 421--422
-\OT1/ptm/m/n/10 l'al-go-ris-me. D'a-ques-ta for-ma, exe-cu-tar[]a el m[]etode
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
-
- []
-
-
-Underfull \hbox (badness 2653) in paragraph at lines 422--423
-[]\OT1/pcr/m/n/10 notificar()\OT1/ptm/m/n/10 : m[]etode que sim-ple-ment ini-ci-a-lit-za
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 422--423
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 433--434
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 435--436
-
- []
-
-<images/cami_1.png, id=139, 871.255pt x 938.50626pt>
-File: images/cami_1.png Graphic file (type png)
-<use images/cami_1.png>
-Package pdftex.def Info: images/cami_1.png  used on input line 450.
-(pdftex.def)             Requested size: 206.39685pt x 222.32474pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--457
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--457
-[] \OMS/cmsy/m/n/10 ! [] !
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 454--457
-
- []
-
-<images/cost1.png, id=140, 672.5125pt x 286.06876pt>
-File: images/cost1.png Graphic file (type png)
-<use images/cost1.png>
-Package pdftex.def Info: images/cost1.png  used on input line 460.
-(pdftex.def)             Requested size: 200.20825pt x 85.16216pt.
-[7 <./images/cami_1.png> <./images/cost1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 467--468
-
- []
-
-<images/cami_2.png, id=150, 871.255pt x 938.50626pt>
-File: images/cami_2.png Graphic file (type png)
-<use images/cami_2.png>
-Package pdftex.def Info: images/cami_2.png  used on input line 474.
-(pdftex.def)             Requested size: 206.39685pt x 222.32474pt.
-<images/cost_2.png, id=151, 825.0825pt x 286.06876pt>
-File: images/cost_2.png Graphic file (type png)
-<use images/cost_2.png>
-Package pdftex.def Info: images/cost_2.png  used on input line 483.
-(pdftex.def)             Requested size: 200.20825pt x 69.41306pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 478--486
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 478--486
-[] \OMS/cmsy/m/n/10 ! [] ! [] !
- []
-
-
-Underfull \hbox (badness 1803) in paragraph at lines 478--486
-[] \OMS/cmsy/m/n/10 ! [] ! [] !
- []
-
-
-Underfull \hbox (badness 3646) in paragraph at lines 478--486
-[] \OMS/cmsy/m/n/10 ! [] ! [] !
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 478--486
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
-
- []
-
-<images/cami_3.png, id=152, 871.255pt x 938.50626pt>
-File: images/cami_3.png Graphic file (type png)
-<use images/cami_3.png>
-Package pdftex.def Info: images/cami_3.png  used on input line 496.
-(pdftex.def)             Requested size: 206.39685pt x 222.32474pt.
-<images/cost_3.png, id=153, 725.71124pt x 286.06876pt>
-File: images/cost_3.png Graphic file (type png)
-<use images/cost_3.png>
-Package pdftex.def Info: images/cost_3.png  used on input line 505.
-(pdftex.def)             Requested size: 200.20825pt x 78.92014pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 500--508
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 500--508
-[] \OMS/cmsy/m/n/10 ! [] !
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 500--508
-[] \OMS/cmsy/m/n/10 ! [] !
- []
-
-
-Underfull \hbox (badness 3690) in paragraph at lines 500--508
-[] \OMS/cmsy/m/n/10 ! [] ! [] !
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 500--508
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 510--511
-
- []
-
-[8 <./images/cami_2.png> <./images/cost_2.png> <./images/cami_3.png> <./images/cost_3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 512--513
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 525--526
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 534--535
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 536--538
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 545--546
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 547--548
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 549--550
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 557--558
-
- []
+<images/execucio1.png, id=117, 853.68938pt x 306.39468pt>
+File: images/execucio1.png Graphic file (type png)
+<use images/execucio1.png>
+Package pdftex.def Info: images/execucio1.png  used on input line 317.
+(pdftex.def)             Requested size: 206.39685pt x 74.07387pt.
+<images/execucio2.png, id=118, 857.45343pt x 310.15875pt>
+File: images/execucio2.png Graphic file (type png)
+<use images/execucio2.png>
+Package pdftex.def Info: images/execucio2.png  used on input line 325.
+(pdftex.def)             Requested size: 206.39685pt x 74.65732pt.
+[4]
+<images/execucio3.png, id=123, 857.45343pt x 309.40594pt>
+File: images/execucio3.png Graphic file (type png)
+<use images/execucio3.png>
+Package pdftex.def Info: images/execucio3.png  used on input line 332.
+(pdftex.def)             Requested size: 206.39685pt x 74.4761pt.
+<images/execucio4.png, id=124, 855.195pt x 310.15875pt>
+File: images/execucio4.png Graphic file (type png)
+<use images/execucio4.png>
+Package pdftex.def Info: images/execucio4.png  used on input line 339.
+(pdftex.def)             Requested size: 206.39685pt x 74.85135pt.
+<images/execucio5.png, id=125, 906.38625pt x 132.495pt>
+File: images/execucio5.png Graphic file (type png)
+<use images/execucio5.png>
+Package pdftex.def Info: images/execucio5.png  used on input line 346.
+(pdftex.def)             Requested size: 206.39685pt x 30.16994pt.
 
 
 ** Conference Paper **
@@ -1208,23 +810,23 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[9] (./doc.aux)
+[5 <./images/execucio1.png> <./images/execucio2.png> <./images/execucio3.png> <./images/execucio4.png> <./images/execucio5.png>] (./doc.aux)
 Package rerunfilecheck Info: File `doc.out' has not changed.
-(rerunfilecheck)             Checksum: 3E2C3B7B8CDD54BC999BA73309E1AEEE;2816.
+(rerunfilecheck)             Checksum: BF6676113C620E4E4C1B1393FCB8F448;2841.
  ) 
 Here is how much of TeX's memory you used:
- 17303 strings out of 478268
- 305223 string characters out of 5846348
- 622564 words of memory out of 5000000
- 35222 multiletter control sequences out of 15000+600000
+ 17276 strings out of 478268
+ 304910 string characters out of 5846348
+ 621557 words of memory out of 5000000
+ 35206 multiletter control sequences out of 15000+600000
  505187 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,8n,63p,932b,469s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on doc.pdf (9 pages, 3087430 bytes).
+ 60i,8n,63p,1032b,427s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on doc.pdf (5 pages, 234372 bytes).
 PDF statistics:
- 243 PDF objects out of 1000 (max. 8388607)
- 188 compressed objects within 2 object streams
- 43 named destinations out of 1000 (max. 500000)
- 217 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 197 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 500000)
+ 199 words of extra memory for PDF output out of 10000 (max. 10000000)
 

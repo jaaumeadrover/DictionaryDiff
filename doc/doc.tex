@@ -124,35 +124,33 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
                         \State $dicts  \gets llistaNomsDiccionaris$
                         \State $dicts2 \gets llistaNomsDictsOrdenats$\\
 
-                    \For{$\text{dict}$ \textbf{in} $\text{dicts}$}
+                    \For{$\textrm{dict}$ \textbf{in} $\textrm{dicts}$}
                                 \State $i\gets 0$
-                                \For{$\text{word}$ \textbf{in} $\text{dict}$}
+                                \For{$\textrm{word}$ \textbf{in} $\textrm{dict}$}
                                     \State $words[i]\gets word$
                                     \State $i=i+1$
                                 \EndFor
                                 \State $sorted\_words \gets words.ordena()$
                                 \State $fWrite \gets dict+str(\_sorted.txt)$
                                 \State fWrite.write(sorted\_words)
-                    \EndFor
+                    \EndFor\\\\
 
-                    \\\\
-
-                    \For{$\text{dict}$ \textbf{in} $\text{dicts2}$}
+                    \For{$\textrm{dict}$ \textbf{in} $\textrm{dicts2}$}
                         \State $indexos \gets \{ \}$
                         \State $pos\gets  0$
                         \State $idx \gets 1$
                         \State $f \gets open(dict)$
                         \State $line \gets dict.readline()$
-                        \While{$\text{line}$}
-                            \State $\text{lon} \gets \text{len(line) - 1}$
-                            \If{$\text{lon} == \text{idx}$}
+                        \While{$\textrm{line}$}
+                            \State $\textrm{lon} \gets \textrm{len(line) - 1}$
+                            \If{$\textrm{lon} == \textrm{idx}$}
                                 \State $pos \gets pos+1$
                             \Else
                                 \State $idx \gets idx+1$
                                 \State $indexos[idx]=pos$
                                 \State $pos \gets pos+1$
                             \EndIf
-                            \State $\text{line} \gets f.\text{readline}()$
+                            \State $\textrm{line} \gets f.\textrm{readline}()$
                         \EndWhile
                         \State $fitxerOut \gets dict+str(\_metadata.txt)$
                         \State $fitxerOut.write(indexos)$
@@ -182,7 +180,7 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
 
     %SUBSECCIÓ 3.4
     \subsection{Algoritme de Levenstein}
-    \\Per a calcular la distància d'edició entre dues paraules, farem servir l'algorisme de Levenstein. En el nostre programa farem servir, la versió més comú d'aquest algorisme, la versió recursiva.\\
+    Per a calcular la distància d'edició entre dues paraules, farem servir l'algorisme de Levenstein. En el nostre programa farem servir, la versió més comú d'aquest algorisme, la versió recursiva.\\
 
     Les diferentes operacions que es poden aplicar a una paraula per a editar-la son: reemplaçar, esborrarr i insertar.\\
     Tenint aixó en compte, poder realitzar crides recursives en les que modificam la paraula per paràmetre i incrementant el comptador del resultat. Aquest comptador ens indicará la distància resultant entre les dues paraules:
@@ -192,6 +190,38 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
         \item Reemplaçar: $return (a_1..a_{n-1}, b_1..b_{m-1}) + 1$
     \end{itemize}
 
+    Per a calcular la distància d'edició entre dues paraules, farem servir l'algorisme de Levenstein. En el nostre programa farem servir, la versió més comú d'aquest algorisme, la versió recursiva.\\
+    
+    Les diferentes operacions que es poden aplicar a una paraula per a editar-la son: reemplaçar, esborrarr i insertar.\\
+
+    Tenint aixó en compte, poder realitzar crides recursives en les que modificam la paraula per paràmetre i incrementant el comptador del resultat. Aquest comptador ens indicará la distància resultant entre les dues paraules:
+    \begin{itemize}
+        \item Afegir: $return  (a_1..a_{n-1}, b_1..b_m) + 1$
+        \item Esborrar: $return (a_1..a_n, b_1..b_{m-1}) + 1$
+        \item Reemplaçar: $return (a_1..a_{n-1}, b_1..b_{m-1}) + 1$
+    \end{itemize}
+    Farem aquestes crides recursives fins a arribar a un cas base en el que una de les dues paraules queda buida. En aquest cas haurem de retornar la longitud de l'altra paraula, aixó representa que quan una para es buida l'única opció es reemplaçar amb tots els caràcters de l'altra paraula.\\
+    La complexitat temporal de la solució anterior és exponencial. En el pitjor dels casos, podríem acabar fent $O(3^m)$operacions. El pitjor cas es produeix quan cap dels caràcters de les dues cadenes coincideix. A continuació es mostra un diagrama de crida recursiva per al pitjor cas.
+    L'espai auxiliar utilitzat és $O(1)$, ja que no s'utilitza espai addicional.\\
+    Finalment, una altre opció es que si els últims caràcters de les dues cadenes són iguals, no hi ha gaire cosa a fer. Ignora els últims caràcters i obtén el recompte per a les cadenes restants. Així que fem una crida recursiva per a les longituds m-1 i n-1:
+    \begin{algorithmic}
+        \Function{EditDist}{$\textrm{str1}, \textrm{str2}, m, n$}
+        \If{$m = 0$}
+            \State \Return $n$
+        \EndIf
+        \If{$n = 0$}
+            \State \Return $m$
+        \EndIf
+        \If{$\textrm{str1}[m - 1] = \textrm{str2}[n - 1]$}
+            \State \Return \textsc{EditDist}$(\textrm{str1}, \textrm{str2}, m - 1, n - 1)$
+        \EndIf
+        \State \Return $1 + \min($
+        \State \hspace{2em} \textsc{EditDist}$(\textrm{str1}, \textrm{str2}, m, n - 1),$ \Comment{Insert}
+        \State \hspace{2em} \textsc{EditDist}$(\textrm{str1}, \textrm{str2}, m - 1, n),$ \Comment{Remove}
+        \State \hspace{2em} \textsc{EditDist}$(\textrm{str1}, \textrm{str2}, m - 1, n - 1)$ \Comment{Replace}
+        \State $)$
+        \EndFunction
+    \end{algorithmic}
 
 %MODEL
 \section{Model}
@@ -266,7 +296,8 @@ Pel que fa als mètodes de la classe simplement són 5:
     \item \texttt{notificar(String s)}: mètode que utilitzam per notificar al control de que l'usuari ha clicat el botó per a calcular .\\
     \item  \texttt{mouseClicked(MouseEvent e)}: En aquesta funció agafarem els botons seleccionats de model per a que es puguin pintar de manera que es distingueixin de la resta.
 \end{itemize}
-\\ Els altres mètodes son més simples però igual de rellevants per a la correcta execució del programa. Primer ens trobam dos \texttt{getters}, que ens permeten obtenir l'idioma seleccionat als dos comboboxes i un \texttt{setter}, que ens posibilita editar el Label per mostrar el resultat desde una altre classe.
+
+Els altres mètodes son més simples però igual de rellevants per a la correcta execució del programa. Primer ens trobam dos \texttt{getters}, que ens permeten obtenir l'idioma seleccionat als dos comboboxes i un \texttt{setter}, que ens posibilita editar el Label per mostrar el resultat desde una altre classe.
 
 \subsection{Classe Panell}
 
@@ -278,13 +309,43 @@ Pel que fa als mètodes de la classe simplement són 5:
 
 %JOCS DE PROVES
 \section{Joc de proves}
+En aquest apartat es mostrarán diferents exemples d'execució amb els quals podrem observar el correcte funcionament de l'aplicació.
+\subsection{Primer cas de prova}
+En aquest primer cas de prova calcularem la distancia entre els idiomes català (CAT) i espanyol (ESP) utilitzant l'algorisme sense optimitzar. El resultat de l'execució es pot observar a la següent imatge:
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/execucio1.png}
+    \caption{Resultat de l'execució 1}
+\end{figure}
 
-    \subsection{Primer cas de prova}
-
-
-    \subsection{Segon cas de prova}
-
-    \subsection{Tercer cas de prova}
+\subsection{Segon cas de prova}
+En aquest segon cas de prova calcularem la distancia entre els idiomes francès (FRA) i anglès (ENG) utilitzant l'algorisme optimitzat. El resultat de l'execució es pot observar a la següent imatge:
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/execucio2.png}
+    \caption{Resultat de l'execució 2}
+\end{figure}
+\subsection{Tercer cas de prova}
+Per al tercer cas de prova calcularem la distancia entre els idiomes norueg (NOR) i el suec (SWE) utilitzant l'algorisme sense optimitzar. El resultat de l'execució es pot observar a la següent imatge:
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/execucio3.png}
+    \caption{Resultat de l'execució 3}
+\end{figure}
+\subsection{Quart cas de prova}
+En el cas del quart cas de prova calcularem la distancia entre els idiomes norueg (NOR) i l'italià (ITA) utilitzant l'algorisme optimitzat. El resultat de l'execució es pot observar a la següent imatge:
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/execucio4.png}
+    \caption{Resultat de l'execució 4}
+\end{figure}
+\subsection{Cinquè cas de prova}
+Finalment, farem una execució on es calculi l distancia entre una llengua i la resta. En aquest cinquè cas de prova calcularem la distancia entre el català (CAT) i la resta de llengues. El resultat de l'execució es pot observar a la següent imatge, on es mostra la distancia que manté el català amb la resta de llengues al pop up que mostra el programa una vegada l'algorisme acaba de calcular:
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/execucio5.png}
+    \caption{Resultat de l'execució 5}
+\end{figure}
 
 \section{Conclusions Finals}
 

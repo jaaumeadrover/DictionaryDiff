@@ -119,6 +119,7 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
         c.insets = new Insets(10, 50, 30, 50);
         add(resultLabel, c);
         this.setLocationRelativeTo(null);
+        this.setResizable(false);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
