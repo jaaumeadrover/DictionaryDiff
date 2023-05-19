@@ -34,9 +34,7 @@ public class Main implements PerEsdeveniments{
     public void notificar(String s) throws InterruptedException {
         switch(s){
             case "Llegir fitxer":
-
                 vis.notificar("fitxerLlegit");
-                //mod.setLlegit(false);
                 break;
             case "Borra":
                 vis.notificar("Repintar");

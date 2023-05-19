@@ -92,4 +92,8 @@ public class Idioma {
     }
 
     public int[] getIndexos(){return this.indexos;}
+
+    public String getNom(){
+        return this.nom;
+    }
 }

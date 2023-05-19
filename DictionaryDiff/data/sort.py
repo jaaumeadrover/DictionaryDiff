@@ -1,5 +1,8 @@
-dicts=["CAT.txt","DEN.txt","FRA.txt","DEU.txt","ITA.txt","NOR.txt","POR.txt","ESP.txt","SWE.txt","ENG.txt"]
-dicts2=["CAT_sorted.txt","DEN_sorted.txt","FRA_sorted.txt","DEU_sorted.txt","ITA_sorted.txt","NOR_sorted.txt","POR_sorted.txt","ESP_sorted.txt","SWE_sorted.txt","ENG_sorted.txt"]
+dicts=["CAT.txt","DEN.txt","FRA.txt","DEU.txt","ITA.txt",
+       "NOR.txt","POR.txt","ESP.txt","SWE.txt","ENG.txt"]
+dicts2=["CAT_sorted.txt","DEN_sorted.txt","FRA_sorted.txt",
+        "DEU_sorted.txt","ITA_sorted.txt","NOR_sorted.txt","POR_sorted.txt",
+        "ESP_sorted.txt","SWE_sorted.txt","ENG_sorted.txt"]
 
 
 #Bucle per a convertir tot a minúscules i ordenar per longitud

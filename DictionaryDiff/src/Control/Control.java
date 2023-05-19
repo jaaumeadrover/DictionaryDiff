@@ -4,8 +4,7 @@ import Levenshtein.Levenstein;
 import Main.Main;
 import Main.PerEsdeveniments;
 import Model.Idioma;
-import Model.Model;
-
+import Utils.Utils;
 import java.io.FileNotFoundException;
 
 /**
@@ -29,21 +28,39 @@ public class Control extends Thread implements PerEsdeveniments {
     @Override
     public void run() {
         if(msg.startsWith("Calcula")){
+
             //inicialitzar dades Model
             String idioma1 = prog.getVista().getSelected1();
+            try {
+                this.prog.getModel().setIdioma1(new Idioma(idioma1));
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+
             if(prog.getVista().getSelected2().equals("Tots")){
+
                 double[] distancias = new double[prog.getModel().NDicts()];
+                Levenstein alg = new Levenstein(this.prog);
+
+                long time=System.nanoTime();//AGAFAR TEMPS
+
                 for (int i = 0; i < distancias.length; i++) {
                     try {
                         prog.getModel().setIdioma2(new Idioma(prog.getModel().getDict(i)));
-                        Levenstein alg = new Levenstein(this.prog);
-                        distancias[i]= alg.distEntre2Langs();
+                        if(this.prog.getModel().isOptimitzat()){
+                            distancias[i]= Utils.round(alg.distOptim());
+                        }else{
+                            distancias[i]= Utils.round(alg.distEntre2Langs());
+                        }
                     } catch (FileNotFoundException e) {
                         throw new RuntimeException(e);
                     }
                 }
-                prog.getVista().setResultLabel("La distància amb tots els idiomes es "+distancias);
+                System.out.println("TEMPS TARDAT: "+(System.nanoTime()-time));
+                prog.getVista().mostraFinestra(prog.getModel().getIdioma1().getNom(),distancias);
+
             }else{
+
                 String idioma2 = prog.getVista().getSelected2();
                 try {
                     this.prog.getModel().setIdioma1(new Idioma(idioma1));
@@ -55,9 +72,13 @@ public class Control extends Thread implements PerEsdeveniments {
                 Levenstein alg = new Levenstein(this.prog);
                 //System.out.println(alg.distEntre2Langs());
                 if(prog.getModel().isOptimitzat()){
-                    prog.getVista().setResultLabel("La distància entre els dos idiomes (OPTIMITZAT): "+alg.distOptim());
+                     long time=System.nanoTime();
+                    prog.getVista().setResultLabel("La distància entre els dos idiomes (OPTIMITZAT): "+Utils.round(alg.distOptim()));
+                    System.out.println("TEMPS TARDAT: "+(System.nanoTime()-time));
                 }else{
-                    prog.getVista().setResultLabel("La distància entre els dos idiomes: "+alg.distEntre2Langs());
+                     long time=System.nanoTime();
+                    prog.getVista().setResultLabel("La distància entre els dos idiomes: "+Utils.round(alg.distEntre2Langs()));
+                    System.out.println("TEMPS TARDAT: "+(System.nanoTime()-time));
                 }
 
             }

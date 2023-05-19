@@ -74,5 +74,9 @@ public class Model {
     public int NDicts(){
         return dicts.length;
     }
+
+    public String[] getIdiomes(){
+        return this.dicts;
+    }
 }
 

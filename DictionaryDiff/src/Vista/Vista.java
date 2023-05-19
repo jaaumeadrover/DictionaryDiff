@@ -24,7 +24,8 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
     public Vista(String s, Main p){
         super(s);
         prog = p;
-        panell = new Panell(400, 300, prog.getModel());
+
+        panell = new Panell(800, 600, prog.getModel());
         this.getContentPane().setBackground(Color.white); // Cambia el color de fondo del panel
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -117,6 +118,7 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
         c.anchor = GridBagConstraints.CENTER;
         c.insets = new Insets(10, 50, 30, 50);
         add(resultLabel, c);
+        this.setLocationRelativeTo(null);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -153,13 +155,6 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
     @Override
     public void notificar(String s) throws InterruptedException {
         switch (s) {
-            case "Repintar":
-
-                break;
-            case "fitxerLlegit":
-
-                break;
-
             case "Calcula":
                 prog.notificar("Calcula");
                 System.out.println("Calcula");
@@ -178,5 +173,13 @@ public class Vista extends JFrame implements ActionListener, PerEsdeveniments {
         resultLabel.setText(txt);
     }
 
+    public void mostraFinestra(String nom,double[] dist){
+        String title="Distància de "+nom+" a altres:";
+        String message="Distàncies: ";
+        for (int i = 0; i < prog.getModel().NDicts(); i++) {
+            message+=prog.getModel().getDict(i)+":"+dist[i]+" | ";
+        }
 
+        JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
+    }
 }
