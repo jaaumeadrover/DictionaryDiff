@@ -204,6 +204,9 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
     La complexitat temporal de la solució anterior és exponencial. En el pitjor dels casos, podríem acabar fent $O(3^m)$operacions. El pitjor cas es produeix quan cap dels caràcters de les dues cadenes coincideix. A continuació es mostra un diagrama de crida recursiva per al pitjor cas.
     L'espai auxiliar utilitzat és $O(1)$, ja que no s'utilitza espai addicional.\\
     Finalment, una altre opció es que si els últims caràcters de les dues cadenes són iguals, no hi ha gaire cosa a fer. Ignora els últims caràcters i obtén el recompte per a les cadenes restants. Així que fem una crida recursiva per a les longituds m-1 i n-1:
+    \begin{algorithm}
+        \caption{Distància d'edició entre dues paraules}
+    
     \begin{algorithmic}
         \Function{EditDist}{$\textrm{str1}, \textrm{str2}, m, n$}
         \If{$m = 0$}
@@ -222,6 +225,80 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
         \State $)$
         \EndFunction
     \end{algorithmic}
+\end{algorithm}
+ \subsection{Algorisme no optimitzat}
+ Ara volem implementar la solució al problema donat. Comparar dos idiomes europeus, a partir dels seus diccionaris de text. Aquesta primera solució que aportarem es la menys eficient (ho comprobarem més endavant).\\
+ 
+ Per començar necesitam els fitxers de text que contenen les paraules traduides entre els dos idiomes que volem comparar. Una vegada tenim aixó hem de carregar els dos idiomes seleccionats a la GUI a la classe mode, ja que l'algorisme accedeix a les dades del model.\\
+ La dinàmica per poder resoldre l'algorisme es la següent:
+ \begin{enumerate}
+     \item Emmagatzemar la primera paraula del primer diccionari y comparar-la amb totes les de l'altre diccionari
+     \item Mentre iteram per aquest diccionari emmagatzemam calculam la distancia de Levenstein entre la paraula del primer diccionari i la del segon en l'actual iteració.
+     \item Aquests resultats els anam guardant i comparant amb l'anterior per a obtenir la mínima distància d'edició.
+     \item En quant hem hem acabat els dos bucles aniats sumam les mínimes distàncies de cada una de les paraules del primer diccionari i la dividim entre el nombre de paraules d'aquest idioma per a obtenir la mitjana de les mínimes distàncies de les paraules.
+     \item Una vegada hem acabat els dos primers bucles, hem de realitszar la mateixa mecànica pero intercanviant l'ordre dels dos llenguatges.
+     \item Finalment, quan tenim les dues mitjanes dels dos idiomes hem de retornar el resultat de la següent fórmula que ens indicarà la distància resultant entre els dos idiomes.
+     $\sqrt{(mitjana_1^2+mitjana_2^2}$
+ \end{enumerate}
+ \begin{algorithm}
+     \caption{Distància entre dos idiomes (No Optimitzat}
+ 
+ \begin{algorithmic}
+\Function{distEntre2Langs}{}
+    \State //Referenciam els llenguatges seleccionats
+    \State String[] llenguatge1 = prog.getModel().getIdioma1().getWords()
+    \State String[] llenguatge2 = prog.getModel().getIdioma2().getWords()
+    \State
+    \State String str1 = ""
+    \State String str2 = ""
+    \State
+    \State int minDist
+    \State Double mean1 = 0.0
+    \State
+    \For{$i \gets 0$ to $llenguatge1$.length}
+        \State str1 $\gets$ llenguatge1[i]
+        \State minDist $\gets$ Integer.MAX\_VALUE
+        \For{$j \gets 0$ to $llenguatge2$.length}
+            \State str2 $\gets$ llenguatge2[j]
+            \State //Levenstein
+            \State int dist $\gets$ \Call{editDist}{str1, str2, str1.length(), str2.length()}
+            \If{dist $<$ minDist}
+                \State minDist $\gets$ dist
+            \EndIf
+        \EndFor
+        \State
+        \State mean1 += minDist
+    \EndFor
+    \State mean1 $\gets$ mean1 / $llenguatge1$.length
+    \State
+    \State Double mean2 = 0.0
+    \State
+    \For{$i \gets 0$ to $llenguatge2$.length}
+        \State str1 $\gets$ llenguatge2[i]
+        \State minDist $\gets$ Integer.MAX\_VALUE
+        \For{$j \gets 0$ to $llenguatge1$.length}
+            \State str2 $\gets$ llenguatge1[j]
+            \State //Levenstein
+            \State int dist $\gets$ \Call{editDist}{str1, str2, str1.length(), str2.length()}
+            \If{dist $<$ minDist}
+                \State minDist $\gets$ dist
+            \EndIf
+        \EndFor
+        \State
+        \State mean2 += minDist
+    \EndFor
+    \State mean2 $\gets$ mean2 / $llenguatge2$.length
+    \State
+    \State \Return $\sqrt{(mean1 \cdot mean1) + (mean2 \cdot mean2)}$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+ \subsection{Algorisme optimitzat}
+ \textbf{ESTO JAUME}
+ \subsection{Un idioma amb Tots}
+ Per a calcular la distància d'edició d'un idioma amb tots, hem d'executar l'algorisme apropiat N vegades, essent N el nombre d'idiomes.\\
+ Cream un array amb els idiomes inicialitzats i també inicialitzam la classe que conté els algorismes. Una vegada fet aixó comprobam al model si l'usuari ha seleccionat l'opció optimitzada o no. Llavors començam el bucle i les execucions mentre o ammagatzemam a un vector que mostrarem.
 
 %MODEL
 \section{Model}
