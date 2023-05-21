@@ -5,6 +5,7 @@
 \usepackage{courier}
 \usepackage[catalan]{babel} % Per usar el català
 \usepackage{multicol}
+\usepackage{multirow}
 \usepackage{titlesec}
 \usepackage{dsfont}
 \usepackage{pgffor}
@@ -424,15 +425,76 @@ Finalment, farem una execució on es calculi l distancia entre una llengua i la 
     \caption{Resultat de l'execució 5}
 \end{figure}
 
+\section{Comparació d'algoritmes}
+    En aquesta secció, ens encarregarem de comparar en termes de precisió i rendiment els dos algoritmes implementats. D'aquesta manera, hem agafat 5 execucions aleatòries i així veurem quin marge d'error s'aprecia i si el rendiment millora considerablement.\\\\ Vegem la següent taula:\\\\
+
+
+
+\begin{table}[]
+\begin{tabular}{|l|ll|ll|l|l|}
+\hline
+\multirow{2}{*}{} & \multicolumn{2}{l|}{No Optimitzat}     & \multicolumn{2}{l|}{Optimitzat}        & Error     & Millora   \\ \cline{2-7} 
+                  & \multicolumn{1}{l|}{Valor} & Temps(ms) & \multicolumn{1}{l|}{Valor} & Temps(ms) & Valor(\%) & Temps(\%) \\ \hline
+CAT-ESP           & \multicolumn{1}{l|}{1'923} & 860       & \multicolumn{1}{l|}{2'009} & 396       & 4'47      & 117'17    \\ \hline
+DEU-ITA           & \multicolumn{1}{l|}{3'671} & 30.417    & \multicolumn{1}{l|}{3'711} & 14.142    & 1'09      & 115'29    \\ \hline
+NOR-POR           & \multicolumn{1}{l|}{3'554} & 7.141     & \multicolumn{1}{l|}{3'567} & 5.663     & 0'37      & 26'15     \\ \hline
+DEN-NOR           & \multicolumn{1}{l|}{1'142} & 3.958     & \multicolumn{1}{l|}{1'21}  & 1.353     & 5'95      & 192'31    \\ \hline
+SWE-FRA           & \multicolumn{1}{l|}{3'929} & 25.156    & \multicolumn{1}{l|}{4'001} & 11.334    & 1'83      & 121'89    \\ \hline
+\end{tabular}
+\end{table} 
+
+Les fórmules amb que s'han calculat l'error i la millora són les següents:\\\\
+\begin{equation}
+Error = \frac{|V_A-V_B|}{V_A}
+\label{eq:error}
+\end{equation}
+
+\begin{equation}
+Millora = (\frac{T_A}{T_B}-1) \times 100
+\label{eq:acceleration}
+\end{equation}
+
+    Les variables $X_A$ corresponen als valors de l'algoritme no optimitzat, mentre que $X_B$ corresponen a valors de l'altre algoritme optimitzat.Els resultats signifiquen el següent:\\
+
+    \begin{itemize}
+        \item \textbf{Error}: el resultat s'allunya el \% determinat de la solució de l'algoritme no optimitzat. Per exemple, si el resultat bo és 100 i ens ha donat 105, tenim un marge d'error del 5\%.
+
+        \item \textbf{Millora}: el resultat s'ha calculat un \% més ràpid amb l'algoritme optimitzat.Per exemple: un 100\% més ràpid significa que ha tardat la mitat i que és dues vegades millor que l'altre.
+        
+    \end{itemize}
+
+    Si volem obtenir una mesura més uniforme, ja que tenim valors que canvien molt entre ells, realitzarem la mitjana aritmètica. Hem obtingut els resultats següents:
+
+    $$\bar{\epsilon}=2.742\%$$
+    $$\bar{\delta}=114.56\%$$
+
+    En conclusió tenim un algoritme que tan sols s'equivoca en un $2.742\%$ de mitja i que és un $114.56\%$ més ràpid, és a dir, que tarda menys de la meitat. Realment és un sacrifici de una petita porció de precisió per un augment molt considerable en el rendiment. Cal destacar que aquest error el provoca el fet de que certs casos no són observats i si ens fixam, el valor sempre tendeix a augmentar en el cas del nostre algoritme. Per tant, suposam que el segon algoritme no contempla certs casos on la distància realment és inferior del que es troba. Finalment, aquests casos que no contempla amb distàncies majors de les originals, es va concatenant i afecta en un percentatge petit degut a la mitjana.
+    
+
+
+
 \section{Conclusions Finals}
+    D'aquesta pràctica podem extreure conclusions molt interessants. En primer lloc, cal destacar que, malgrat ser més ràpid l'algoritme optimitzat, existeix un petit error. La pregunta és, val la pena la millora de \textit{performance}, sacrificant aquest càlcul més certer amb una imprecisió?\\\\
+
+    
+
+    La resposta, com és clar, és sí. En el cas del nostre projecte, el error no repercuteix greument sobre cap factor concret, és a dir, que un error no podria posar en risc la integritat de qualssevol. Si estiguessim en un cas on la precisió és un factor molt important, hauríem de considerar la altra possibilitat. Tot i això, existeix el dilema de que encara que sigui més certer el primer algoritme, hi ha factors externs que podrien alterar el benefici obtingut. Anem a posar un exemple: si tenim un algoritme que tarda un any i falla molt menys que un que tarda minuts, utilitzaríem el de minuts ja que en un any d'execució poden passar moltes coses a nivell de maquinari com caigudes, etc.\\\\
+
+    Un altre factor a tenir en compte és la heurística que s'ha aplicat per veure la diferència entre dos idiomes:\\
+
+    $$dif=\sqrt{(mean_1)^2+(mean_2)^2}$$
+
+    Aquesta ha estat enginy per part del professor i cal destacar que és útil per a aconseguir que la distància entre dos idiomes no depengui de l'origen, és a dir, que sigui la mateixa distància $A\rightarrow B$ i $B\rightarrow A$. Això ens permet tenir un criteri més correcte i poder definir una uniformitat en els càlculs.\\\\
+
+    Finalment,
 
 
 
+    EXTREURE ERROR:
 
 \section{Bibliografia}
 
     
-
-
+\href{https://youtu.be/fwJjpH5_WDg}{Video Explicatiu de la Pràctica amb execucions}
 
 \end{document}
