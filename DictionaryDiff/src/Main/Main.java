@@ -33,12 +33,7 @@ public class Main implements PerEsdeveniments{
     @Override
     public void notificar(String s) throws InterruptedException {
         switch(s){
-            case "Llegir fitxer":
-                vis.notificar("fitxerLlegit");
-                break;
-            case "Borra":
-                vis.notificar("Repintar");
-                break;
+
             case "Calcula":
 
                 this.con = new Control(this);
