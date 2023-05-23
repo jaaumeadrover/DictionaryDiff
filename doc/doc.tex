@@ -8,6 +8,7 @@
 \usepackage{multirow}
 \usepackage{titlesec}
 \usepackage{dsfont}
+\usepackage{amsmath}
 \usepackage{pgffor}
 \usepackage{amsfonts}
 \usepackage{algorithm}
@@ -101,8 +102,6 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
 
         \item \textbf{Optimització de l'algoritme}: enteníem la manera d'optimitzar, però no teníem molt clar com ordenar les paraules per longitud, a més d'obtenir els indexos de les localitzacions de les paraules segons la seva longitud.
 
-        \item \textbf{Problema DARRER}: .
-        \\
     \end{itemize}
     \subsection{Solucions adoptades}
 
@@ -111,9 +110,9 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
             \item \textbf{Manipulació de les Dades}: per a tenir unes dades de qualitat, primer de tot, vàrem haver de canviar la codificació a \textit{UTF-8}.Posteriorment, vàrem convertir tot a minúscules amb l'aplicació \textit{Notepad++}. Això vendria a ser els requisits mínims per a la compatibilitat amb la nostra versió de Java, però hem d'afegir aquests si volem utilitzar l'algoritme optimitzat:
 
             \begin{itemize}
-                \item \textbf{Ordenació per longitud}:
+                \item \textbf{Ordenació per longitud}: vàrem aconseguir ordenar por longitud les paraules en el txt que té el següent format: \textit{XXX\_sorted.txt}. D'aquesta manera, si només volem comparar paraules de mateixa longitud o no molt diferent a les de una paraula, podem seguir un ordre seqüencial.Destacam que \textit{XXX} es refereix al codi d'un idioma, per exemple, \textit{DEN} en cas del danés.\\
 
-                \item \textbf{Emmagatzematge indexos segons la longitud}:
+                \item \textbf{Emmagatzematge indexos segons la longitud}: aconseguim guardar en un fitxer les respectives posicions on comencen les paraules d'una determinada longitud. Vegeu \textit{metadata} posteriorment.
             \end{itemize}
 
             Totes aquestes manipulacions s'han aconseguit amb un script de Python, ja que ens resultava més senzill. Vegeu-lo:\\
@@ -176,9 +175,6 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
         \end{itemize}
 
 
-    \subsection{Resolució general}
-
-
     %SUBSECCIÓ 3.4
     \subsection{Algoritme de Levenstein}
     Per a calcular la distància d'edició entre dues paraules, farem servir l'algorisme de Levenstein. En el nostre programa farem servir, la versió més comú d'aquest algorisme, la versió recursiva.\\
@@ -191,17 +187,15 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
         \item Reemplaçar: $return (a_1..a_{n-1}, b_1..b_{m-1}) + 1$
     \end{itemize}
 
-    Per a calcular la distància d'edició entre dues paraules, farem servir l'algorisme de Levenstein. En el nostre programa farem servir, la versió més comú d'aquest algorisme, la versió recursiva.\\
     
-    Les diferentes operacions que es poden aplicar a una paraula per a editar-la son: reemplaçar, esborrarr i insertar.\\
-
-    Tenint aixó en compte, poder realitzar crides recursives en les que modificam la paraula per paràmetre i incrementant el comptador del resultat. Aquest comptador ens indicará la distància resultant entre les dues paraules:
-    \begin{itemize}
-        \item Afegir: $return  (a_1..a_{n-1}, b_1..b_m) + 1$
-        \item Esborrar: $return (a_1..a_n, b_1..b_{m-1}) + 1$
-        \item Reemplaçar: $return (a_1..a_{n-1}, b_1..b_{m-1}) + 1$
-    \end{itemize}
     Farem aquestes crides recursives fins a arribar a un cas base en el que una de les dues paraules queda buida. En aquest cas haurem de retornar la longitud de l'altra paraula, aixó representa que quan una para es buida l'única opció es reemplaçar amb tots els caràcters de l'altra paraula.\\
+
+    En resum:
+    \begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.388\textwidth]{images/formula3.png}
+    \caption{Fórmula resum de la distància de Levenstein}
+\end{figure}
     La complexitat temporal de la solució anterior és exponencial. En el pitjor dels casos, podríem acabar fent $O(3^m)$operacions. El pitjor cas es produeix quan cap dels caràcters de les dues cadenes coincideix. A continuació es mostra un diagrama de crida recursiva per al pitjor cas.
     L'espai auxiliar utilitzat és $O(1)$, ja que no s'utilitza espai addicional.\\
     Finalment, una altre opció es que si els últims caràcters de les dues cadenes són iguals, no hi ha gaire cosa a fer. Ignora els últims caràcters i obtén el recompte per a les cadenes restants. Així que fem una crida recursiva per a les longituds m-1 i n-1:
@@ -246,23 +240,18 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
  
  \begin{algorithmic}
 \Function{distEntre2Langs}{}
-    \State //Referenciam els llenguatges seleccionats
-    \State String[] llenguatge1 = prog.getModel().getIdioma1().getWords()
-    \State String[] llenguatge2 = prog.getModel().getIdioma2().getWords()
-    \State
-    \State String str1 = ""
-    \State String str2 = ""
     \State
     \State int minDist
     \State Double mean1 = 0.0
-    \State
+    
     \For{$i \gets 0$ to $llenguatge1$.length}
         \State str1 $\gets$ llenguatge1[i]
-        \State minDist $\gets$ Integer.MAX\_VALUE
+        \State minDist $\gets \infty $
         \For{$j \gets 0$ to $llenguatge2$.length}
             \State str2 $\gets$ llenguatge2[j]
-            \State //Levenstein
+        
             \State int dist $\gets$ \Call{editDist}{str1, str2, str1.length(), str2.length()}
+            
             \If{dist $<$ minDist}
                 \State minDist $\gets$ dist
             \EndIf
@@ -273,14 +262,15 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
     \State mean1 $\gets$ mean1 / $llenguatge1$.length
     \State
     \State Double mean2 = 0.0
-    \State
+
     \For{$i \gets 0$ to $llenguatge2$.length}
         \State str1 $\gets$ llenguatge2[i]
         \State minDist $\gets$ Integer.MAX\_VALUE
         \For{$j \gets 0$ to $llenguatge1$.length}
             \State str2 $\gets$ llenguatge1[j]
-            \State //Levenstein
+           
             \State int dist $\gets$ \Call{editDist}{str1, str2, str1.length(), str2.length()}
+            
             \If{dist $<$ minDist}
                 \State minDist $\gets$ dist
             \EndIf
@@ -296,7 +286,86 @@ Una estructura MVC (Model Vista Controlador), consta de 3 grans parts:
 \end{algorithm}
 
  \subsection{Algorisme optimitzat}
- \textbf{ESTO JAUME}
+    Aquest algoritme presenta una optimització bastant considerable a l'hora de comparar i obtenir la distància mínima. Si ens adonam compte, sols fa falta comparar una paraula amb les altres que tenguin la mateixa longitud, ja que la distància mínima pot ser 0, ja que no haurem d'afegir mai cap lletra per a igualar la seva longitud. Anem a veurer-ho d'una manera molt més analítica:
+
+    $$\exists \quad \vec{w}_1,\vec{w}_2,L_1,L_2 \quad | \quad \vec{w}_1 \in L_1 \land \vec{w}_2 \in L_2$$
+
+    Existeixen dues paraules $w_1$ i $w_2$, que ambdues tenen longitud $l_i$. Si ens adonam compte, el rang de distància sempre segueix aquest interval:
+
+    $$Dist_{12}=[|l_1-l_2|,l_{max}]$$
+
+    $$Dist_{12}=Dist_{21}$$
+
+    ´D'aquestes fórmules extreim dues conclusions:\\
+
+    \begin{itemize}
+        \item \textbf{L'ordre no importa}:comparar la distància de la primera paraula o viceversa dona el mateix resultat. Per exemple:\\
+
+        $$\vec{w}_1=arbre$$
+        $$\vec{w}_2=arbres$$
+
+        Si tenim aquestes dues paraules, de la primera a la segona hi haurà distància mínima de 1, ja que sempre s'hi haurà d'afegir una lletra. En canvi, per l'altre banda, sempre haurem d'eliminar una lletra per a obtenir la mateixa longitud.
+
+        \item \textbf{Optimitzar nº comparacions}: d'aquesta manera, podem veure que la millor manera de trobar una distància mínima és on la diferència agafa el valor més petit possible. Aquesta condició s'acompleix quan $l_1=l_2$, és a dir, quan la longitud d'ambdues paraules és la mateixa. D'aquesta manera, el rang de valor que pot agafar la distància és el següent:
+
+        $$Dist=[0,l_{max}]$$
+
+        No ho hem mencionat anteriorment pero $l_{max}$ fa referència a la longitud máx de les dues paraules, que és el valor màxim que pot agafar la distància de Levenstein. És a dir, en el pitjor dels casos, totes les lletres de la paraula més llarga són incorrectes i $Dist=l_{max}$.\\
+
+        Com a resultat de l'anàlisi anterior tenim 2 possibilitats diferents:
+        \[
+            f(x) =
+            \begin{cases}
+                seguim\ mirant & \text{if } D> 1, \\
+                aturam & \text{if } D\leq 1.
+            \end{cases}
+        \]
+
+        És a dir, si trobam distància menor o igual a 1 després d'haver mirat totes les paraules d'una mateixa longitud, no fa falta que seguim mirant les paraules adjacents de altres longituds. Això passa ja que tant per l'esquerra com la dreta les pròximes paraules tindràn sempre distància mínima 1 i no es pot trobar un cas millor. 
+
+        \begin{itemize}
+            \item \textbf{Esquerre}: en el cas de les paraules amb longitud menor, trobam aquest rang de distàncies:
+            $$l_1=l_2+1$$
+            $$Dmin=l_1-l_2=|l_2+1-l_2=1$$
+            $$Dist=[1,l_1]$$
+
+            D'aquesta manera, en el millor dels casos no aconseguiríem millor la distància mínima actual, així que no fa falta seguir mirant si la nostra distància és menor igual a 1.
+            
+            \item \textbf{Dreta}: en el cas de les paraules amb longitud major, trobam aquest rang de distàncies:
+                        $$l_1=l_2-1$$
+                        $$Dmin=l_1-l_2=|l_2-1-l_2|=1$$
+                        $$Dist=[1,l_1]$$
+
+            D'aquesta manera, en el millor dels casos no aconseguiríem millor la distància mínima actual, així que no fa falta seguir mirant si la nostra distància és menor igual a 1.
+        \end{itemize}
+
+        En canvi, si la nostra distància $D$ és major que 1, hem de cercar un rang de distàncies on la mínima sigui menor que la actual. Anem a cercar aquest conjunt vàlid:
+
+        $$\exists D>1 \quad  \quad$$
+
+        $$Dist=[D_2,l_{max}]$$
+
+        $$D_2=|l_1-l_2'|<D$$
+
+        És a dir, nosaltres volem trobar un $D_2$ que sigui menor que la nostra distància actual $D$. Per tant, hem de trobar un valor en el qual la diferència de longitud de les paraules sigui menor a D. És a dir, hem de poder trobar un cas millor al que tenim actualment, sinó no fa falta mirar el rang amb les paraules corresponents.\\ Suposem un exemple concret:
+
+        $$D=3$$
+
+        $$Dist=[D2,l_max]$$
+
+        $$D_2=l_1-l_2'<3$$
+
+        En aquest exemple podem veure que, com a màxim, podem comparar amb paraules que tenguin una diferència de longitud de 2 unitats, sinó $D_2=D$ i no podem millorar.
+    
+        
+
+        
+    \end{itemize}
+    
+
+
+
+ 
  \subsection{Un idioma amb Tots}
  Per a calcular la distància d'edició d'un idioma amb tots, hem d'executar l'algorisme apropiat N vegades, essent N el nombre d'idiomes.\\
  Cream un array amb els idiomes inicialitzats i també inicialitzam la classe que conté els algorismes. Una vegada fet aixó comprobam al model si l'usuari ha seleccionat l'opció optimitzada o no. Llavors començam el bucle i les execucions mentre o ammagatzemam a un vector que mostrarem.
@@ -379,11 +448,28 @@ Els altres mètodes son més simples però igual de rellevants per a la correcta
 
 \subsection{Classe Panell}
 
+La classe \texttt{Panell.java}, es molt més simple que les vistes anteriorment, ja que no hem d'implementar cap métode per a pintar sobre el panell. Simplement hem de extendre la classe \texttt{JPanel}, per a poder establir el tamany preferit que volem per al nostre programa.
+
 %CONTROLADOR
 \section{Controlador}
+La classe de Control, es l'encarregada de comunicar les opciones seleccionades per l'usuari a la Vista. Si s'ha seleccionat l'opció optimitzada o si es desitja executar un idioma amb un altre s'ha d'agafar aquestes dades de la vista i emmagatzemar directament al model. \\
+En cas de que es vulgui comprobar la distància entre dos únics idiomes, hem de emmagatzemar-los tot dos al model. Una vegada fet aixió els a inicialitzam i executam l'algorisme que l'usuari desitji per a poder mostrar el resultat a l'apartat de la finestra.\\
+L'altre opció es el cas de que l'usuari seleccioni l'opció de calcular la distància d'un idioma amb tota la resta, en aquest cas haurem de fer un bucle executant diverses vegades i emmagatzemant els resultats per a mostrar-los després, tal i com hem explicat abans.
+\\ Una vegada calculat únicament haurem de mostrar els resultats a la Vista.
 
 \section{Programa Principal}
-
+ En aquesta secció s'explicarà la estructura que segueix el nostre programa principal, a més de les accions a realitzar. El nostre programa principal conté com a atributs tres diferents instàncies que implementen el MVC:
+\begin{verbatim}
+private Model mod;
+private Vista vis;
+private Control con;
+\end{verbatim}
+    Amb aquests punters podem accedir a l'informació del model i notificar el diferents events enregistrats. En quant als métodes, el més important i l'únic digne d'explicació es el de \texttt{notificar(String s)} Aquest métode implementa les accions que deriven de l'String rebut per paràmetre, cada posibilitat del switch que utilitzam representa un dels botons de l'interfície les diferentes opcions són:
+    \begin{itemize}
+        \
+        \item \texttt{case 'Calcula':} , en aquest botó notificam al control per a que calculi amb el parametre indicat.\\
+    \end{itemize}
+    En aquesta pràctica únicament tenim un botó per a notificar al Control, pero seguim utilitzant la mateixa plantilla per a simplificar el diseny MVC. Aquesta simplesa a l'hora de notificar, es degut a que l'informació del JComboBox l'agafam directament de la Vista al Model.
 
 %JOCS DE PROVES
 \section{Joc de proves}
@@ -430,20 +516,60 @@ Finalment, farem una execució on es calculi l distancia entre una llengua i la 
 
 
 
-\begin{table}[]
-\begin{tabular}{|l|ll|ll|l|l|}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
 \hline
-\multirow{2}{*}{} & \multicolumn{2}{l|}{No Optimitzat}     & \multicolumn{2}{l|}{Optimitzat}        & Error     & Millora   \\ \cline{2-7} 
-                  & \multicolumn{1}{l|}{Valor} & Temps(ms) & \multicolumn{1}{l|}{Valor} & Temps(ms) & Valor(\%) & Temps(\%) \\ \hline
-CAT-ESP           & \multicolumn{1}{l|}{1'923} & 860       & \multicolumn{1}{l|}{2'009} & 396       & 4'47      & 117'17    \\ \hline
-DEU-ITA           & \multicolumn{1}{l|}{3'671} & 30.417    & \multicolumn{1}{l|}{3'711} & 14.142    & 1'09      & 115'29    \\ \hline
-NOR-POR           & \multicolumn{1}{l|}{3'554} & 7.141     & \multicolumn{1}{l|}{3'567} & 5.663     & 0'37      & 26'15     \\ \hline
-DEN-NOR           & \multicolumn{1}{l|}{1'142} & 3.958     & \multicolumn{1}{l|}{1'21}  & 1.353     & 5'95      & 192'31    \\ \hline
-SWE-FRA           & \multicolumn{1}{l|}{3'929} & 25.156    & \multicolumn{1}{l|}{4'001} & 11.334    & 1'83      & 121'89    \\ \hline
+ & \multicolumn{2}{l|}{No Optimitzat} & \multicolumn{2}{l|}{Optimitzat} \\
+\cline{2-5}
+ & Valor & Temps(ms) & Valor & Temps(ms) \\
+\hline
+CAT-ESP & 1'923 & 860 & 2'009 & 396 \\
+DEU-ITA & 3'671 & 30.417 & 3'711 & 14.142 \\
+NOR-POR & 3'554 & 7.141 & 3'567 & 5.663 \\
+DEN-NOR & 1'142 & 3.958 & 1'21 & 1.353 \\
+SWE-FRA & 3'929 & 25.156 & 4'001 & 11.334 \\
+\hline
 \end{tabular}
-\end{table} 
+\caption{Valor y Temps d'execució dels algorismes No Optimitzat y Optimitzat}
+\label{tab:no_opt_opt}
+\end{table}
 
-Les fórmules amb que s'han calculat l'error i la millora són les següents:\\\\
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+ & Error & Millora \\
+\hline
+CAT-ESP & 4'47 & 117'17 \\
+DEU-ITA & 1'09 & 115'29 \\
+NOR-POR & 0'37 & 26'15 \\
+DEN-NOR & 5'95 & 192'31 \\
+SWE-FRA & 1'83 & 121'89 \\
+\hline
+\end{tabular}
+\caption{Tabla de Error y Millora}
+\label{tab:error_millora}
+\end{table}
+
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.388\textwidth]{images/Figure_1.png}
+    \caption{Gràfic mostrant l'error Optimitzat vs No Optimitzat}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.388\textwidth]{images/Figure_2.png}
+    \caption{Gràfic mostrant el temps d'execució Optimitzat vs No Optimitzat}
+\end{figure}
+Amb aquests gràfics podem veure diferents fets rellevants:
+\begin{itemize}
+    \item Al primer gràfic es mostra el que varem explicar sobre el 2,74\% d'error produit entre els dos algorismes. La diferència d'altura entre les dues barres es pràcticament despreciable. Aixó mostra la correctesa de l'implementació de l'algorisme.
+    \item En el darrer gráfic es mostra la diferència de temps d'execució entre les dues implementacions. Com es pot apreciar, els idiomes amb mayor distància, impliquen un major temps d'execució, per tot dos algorismes. Aixó es degut a que hem de mirar per més paraules per poder trobar la mínima. Tambe veim una diferencia bastant notória en quant al temps d'execució entre els dos algorismes.
+\end{itemize}
+
+Les fórmules amb que s'han calculat l'error i la millora són les següents:\\
 \begin{equation}
 Error = \frac{|V_A-V_B|}{V_A}
 \label{eq:error}
@@ -457,9 +583,9 @@ Millora = (\frac{T_A}{T_B}-1) \times 100
     Les variables $X_A$ corresponen als valors de l'algoritme no optimitzat, mentre que $X_B$ corresponen a valors de l'altre algoritme optimitzat.Els resultats signifiquen el següent:\\
 
     \begin{itemize}
-        \item \textbf{Error}: el resultat s'allunya el \% determinat de la solució de l'algoritme no optimitzat. Per exemple, si el resultat bo és 100 i ens ha donat 105, tenim un marge d'error del 5\%.
+        \item \textbf{Error}: el resultat s'allunya el \% determinat de la solució de l'algoritme no optimitzat. Per exemple, si el resultat bo és 100 i ens ha donat 105, tenim un marge d'error del 5\%. En el nostre cas, la mitja de l'error segons aquestes execucions es del 2,74 \%
 
-        \item \textbf{Millora}: el resultat s'ha calculat un \% més ràpid amb l'algoritme optimitzat.Per exemple: un 100\% més ràpid significa que ha tardat la mitat i que és dues vegades millor que l'altre.
+        \item \textbf{Millora}: el resultat s'ha calculat un \% més ràpid amb l'algoritme optimitzat. Per exemple: un 100\% més ràpid significa que ha tardat la mitat i que és dues vegades millor que l'altre.
         
     \end{itemize}
 
@@ -486,15 +612,17 @@ Millora = (\frac{T_A}{T_B}-1) \times 100
 
     Aquesta ha estat enginy per part del professor i cal destacar que és útil per a aconseguir que la distància entre dos idiomes no depengui de l'origen, és a dir, que sigui la mateixa distància $A\rightarrow B$ i $B\rightarrow A$. Això ens permet tenir un criteri més correcte i poder definir una uniformitat en els càlculs.\\\\
 
-    Finalment,
+    Finalment, cal destacar el poder de tenir les dades ordenades i un índex per a obtenir les respectives posicions de les paraules. Ordenar tot el diccionari i obtenir els índexos no ens considera un gran cost i, si a més d'això, ho deixam per escrit a un fitxer, no haurem de realitzar aquests càlculs cada vegada. Per tant, és molt important destacar que la manera en que estan integrades les dades dins el nostre projecte ens ajuda a obtenir una millora remarcable. Altres mesures com el paral·lelisme  o la aleatorietat ens podrien ajudar a augmentar el rendiment. Sobretot, destacar el fet de que ens ha parescut molt eficient el fet de emmagatzemar les dades ordenades per longitud amb metadata, evitant així un procés que es realitzaria cada pic que s'executés el programa.
 
-
-
-    EXTREURE ERROR:
 
 \section{Bibliografia}
 
-    
-\href{https://youtu.be/fwJjpH5_WDg}{Video Explicatiu de la Pràctica amb execucions}
+\begin{enumerate}
+    \item \href{https://youtu.be/fwJjpH5_WDg}{Video Explicatiu de la Pràctica amb execucions}
+    \item \href{https://www.geeksforgeeks.org/edit-distance-dp-5/}{https://www.geeksforgeeks.org/edit-distance-dp-5/}
+    \item \href{https://en.wikipedia.org/wiki/Levenshtein_distance}{https://en.wikipedia.org/wiki/Levenshtein\_distance}
+\end{enumerate}
+
+
 
 \end{document}
