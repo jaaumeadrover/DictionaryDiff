@@ -1,10 +1,12 @@
 package Main;
 
-import Model.Model;
 import Control.Control;
+import Model.Model;
 import Vista.Vista;
 
 import java.io.IOException;
+
+import mesurament.Mesurament;
 
 
 public class Main implements PerEsdeveniments{
@@ -23,7 +25,7 @@ public class Main implements PerEsdeveniments{
     }
 
     public static void main(String[] args) throws IOException {
-        //Mesurament.mesura();
+        Mesurament.mesura();
         (new Main()).inicio();
     }
     /*
