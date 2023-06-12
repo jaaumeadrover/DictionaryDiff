@@ -466,7 +466,6 @@ private Control con;
 \end{verbatim}
     Amb aquests punters podem accedir a l'informació del model i notificar el diferents events enregistrats. En quant als métodes, el més important i l'únic digne d'explicació es el de \texttt{notificar(String s)} Aquest métode implementa les accions que deriven de l'String rebut per paràmetre, cada posibilitat del switch que utilitzam representa un dels botons de l'interfície les diferentes opcions són:
     \begin{itemize}
-        \
         \item \texttt{case 'Calcula':} , en aquest botó notificam al control per a que calculi amb el parametre indicat.\\
     \end{itemize}
     En aquesta pràctica únicament tenim un botó per a notificar al Control, pero seguim utilitzant la mateixa plantilla per a simplificar el diseny MVC. Aquesta simplesa a l'hora de notificar, es degut a que l'informació del JComboBox l'agafam directament de la Vista al Model.
